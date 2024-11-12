@@ -1,0 +1,18 @@
+<h2>********* Welcome to the longest word-game! *********</h2>
+<h3>Here is your grid:</h3>
+
+<p>
+  <% @letters.each do |letter| %>
+    <%= letter.capitalize %>
+  <% end %>
+</p>
+
+<p>*****************************************************</p>
+<h3>What is your longest word?</h3>
+
+<form action="/score" method="POST" data-turbo="false">
+  <input type ="text" name="word" placeholder="Type your word here">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+</form>
+
